@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Просмотр HTML</title>
+<style>
+    textarea {
+        width: 100%;
+        height: 200px;
+    }
+    iframe {
+        width: 100%;
+        height: 400px;
+        border: 1px solid #ccc;
+    }
+</style>
+</head>
+<body>
+<h1>Парсер html и CSS кода</h1>
+<textarea id="htmlCode" placeholder="Введите HTML код здесь..."></textarea>
+<button onclick="showHTML()">Просмотр</button>
+<br>
+<iframe id="resultFrame"></iframe>
+
+<script>
+    function showHTML() {
+        var htmlCode = document.getElementById("htmlCode").value;
+        var resultFrame = document.getElementById("resultFrame").contentWindow.document;
+        resultFrame.open();
+        resultFrame.write(htmlCode);
+        resultFrame.close();
+    }
+</script>
+
+</body>
+</html>
